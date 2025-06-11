@@ -23,9 +23,11 @@ app.use(cors({
 
 // ... (your /api/send-verification-email endpoint)
 
-app.post('/api/send-verification-email', async (req, res) => {
+// app.post('/api/send-verification-email', async (req, res) => {
+//   const { email, verificationUrl } = req.body;
+app.post('/verify-email', async (req, res) => {
   const { email, verificationUrl } = req.body;
-
+  
   // ... (validation)
 // Basic validation (add more robust validation in a real app)
 if (!email || !verificationUrl) {
