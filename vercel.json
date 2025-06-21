@@ -1,0 +1,18 @@
+{
+    "builds": [
+      {
+        "src": "backend/index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/verify-email",
+        "dest": "backend/index.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "backend/index.js"
+      }
+    ]
+  }
