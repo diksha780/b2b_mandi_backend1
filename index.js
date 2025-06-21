@@ -13,13 +13,23 @@ const cors = require('cors');
 const app = express(); 
 // 2. Ensure CORS origin uses FRONTEND_URL from .env
 app.use(express.json());
+
+
+const frontendUrl = process.env.FRONTEND_URL;
+console.log('--- Vercel Backend CORS Debug: FRONTEND_URL is set to:', frontendUrl);
+
+app.use(cors({
+  origin: frontendUrl, // Uses the variable we are debugging
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Explicitly allow common methods
+  credentials: true, // If your frontend sends cookies or authorization headers
+  optionsSuccessStatus: 204, // Recommended for preflight requests
+}));
+
 // 4. Constants for Resend API
 const RESEND_API_URL = 'https://api.resend.com/emails';
 
 
-app.use(cors({
-    origin: process.env.FRONTEND_URL
-}));
+
 
 // ... (your /api/send-verification-email endpoint)
 
