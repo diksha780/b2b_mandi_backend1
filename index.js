@@ -13,7 +13,12 @@ const cors = require('cors');
 const app = express(); 
 // 2. Ensure CORS origin uses FRONTEND_URL from .env
 app.use(express.json());
+
+
+
+
 // 4. Constants for Resend API
+
 
 
 // --- CRUCIAL DEBUGGING LOG ---
@@ -26,6 +31,9 @@ app.use(cors({
   credentials: true, // If your frontend sends cookies or authorization headers
   optionsSuccessStatus: 204, // Recommended for preflight requests
 }));
+
+
+
 
 const RESEND_API_URL = 'https://api.resend.com/emails';
 // ... (your /api/send-verification-email endpoint)
